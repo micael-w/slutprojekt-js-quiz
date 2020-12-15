@@ -1,0 +1,192 @@
+/* ------------------------------- import font ------------------------------ */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+:root {
+ 
+/* --------------------------------- colors --------------------------------- */
+ 
+    --white:        #f8f9fb;
+    --white-dark:   #f2f3f5;
+    --black:        #1f2850;
+    --black-light:  #a2a6b5;
+
+    --green:        #8cd181;
+    --green-dark:   #1e8d3e;
+    --red:          #f56d84;
+    --red-dark:     #cb4f6f;
+    --yellow:       #f5c521;
+    --yellow-dark:  #f4a603;
+    --blue:         #0e80e3;
+    --blue-50:      rgba(14, 128, 227, 0.5);
+    --blue-dark:    #3b4a9b;
+ 
+}
+
+/* -------------------------------- css reset ------------------------------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ----------------------------------- css ---------------------------------- */
+
+body {
+    background-color: var(--white-dark);
+    color: var(--black-light);
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+h1 {
+    font-weight: 400;
+    font-size: 2.4rem;
+}
+
+.wrapper {
+    background-color: var(--white);
+    margin-top: 3rem;
+    width: 60vw;
+    height: 60vh;
+    border-radius: 2%;
+    box-shadow:
+    0 4.5px 3.6px rgba(31, 40, 80, 0.024),
+    0 12.5px 10px rgba(31, 40, 80, 0.035),
+    0 30.1px 24.1px rgba(31, 40, 80, 0.046),
+    0 100px 80px rgba(031, 40, 80, 0.07);
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.container {
+    width: 80%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 0px 0px;
+    grid-template-areas:
+      "question question question question"
+      "question-number question-number question-number question-number"
+      "progress-bar progress-bar progress-bar progress-bar"
+      "option-1 option-1 option-2 option-2"
+      "option-3 option-3 option-4 option-4"
+      "navigation navigation navigation navigation";
+  }
+  
+.question { 
+    grid-area: question;
+    text-align: center;
+}
+
+.question-number {
+    grid-area: question-number;
+    text-align: center;
+}
+
+.progress, .progress-bar {
+    height: 1rem;
+    border-radius: 5px;
+}
+
+.progress {
+    justify-self: center;
+    grid-area: progress-bar;
+    background-color: var(--blue-50);
+    width: 95%;
+}
+
+.progress-bar {
+    background-color: var(--blue-dark);
+    width: 20%;
+}
+
+.option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white-dark);
+    margin: 1rem;
+    border-radius: 5px;
+}
+
+.option:hover {
+    background-color: var(--black-light);
+    color: var(--white);
+}
+
+.option-selected {
+    border: solid 2px var(--black);
+}
+
+.option-1 {
+    grid-area: option-1;
+}
+
+.option-2 {
+    grid-area: option-2;
+}
+
+.option-3 {
+    grid-area: option-3;
+}
+
+.option-4 {
+    grid-area: option-4;
+}
+
+.navigation {
+    justify-self: center;
+    width: 100%;
+    grid-area: navigation;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-btn {
+    text-align: center;
+    width: 45%;
+    margin: 1rem;
+    padding: .5rem;
+    border-radius: 5px;
+}
+
+.next {
+    color: var(--black);
+    background-color: var(--green);
+}
+
+.next:hover {
+    background-color: var(--green-dark);
+    color: var(--white);
+}
+
+.next-disabled {
+    color: var(--black);
+    background-color: var(--green);
+    opacity: 50%;
+}
+
+.restart {
+    color: var(--black-light);
+
+    border: solid 1px var(--black-light);
+}
+
+.restart:hover {
+    border: none;
+    background-color: var(--black-light);
+    color: var(--white);
+}
+
+.nav-btn, .option {
+    cursor: pointer;
+}
