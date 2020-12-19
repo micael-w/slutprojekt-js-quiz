@@ -204,9 +204,10 @@ h1 {
     cursor: pointer;
 }
 
-.next-disabled {
+.next-disabled, .next-disabled:hover, .next-disabled:active {
     color: var(--black);
     background-color: var(--green);
     opacity: 50%;
     cursor: default;
+    transform: scale(1);
 }

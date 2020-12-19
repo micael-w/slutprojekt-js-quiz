@@ -28,7 +28,7 @@ class UI {
                     ${array[i].answers[3].answer}
                 </div>
                 <div class="navigation">
-                    <div class="btn nav-btn next">
+                    <div class="btn nav-btn next next-disabled">
                         Next
                     </div>
                     <div class="btn nav-btn restart">
