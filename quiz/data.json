@@ -5,7 +5,7 @@
          "category":"Science: Mathematics",
          "type":"multiple",
          "difficulty":"easy",
-         "question":"In Roman Numerals, what does XL equate to?",
+         "question":"(1) In Roman Numerals, what does XL equate to?",
          "correct_answer":"40",
          "incorrect_answers":[
             "60",
@@ -17,7 +17,7 @@
          "category":"Entertainment: Video Games",
          "type":"multiple",
          "difficulty":"medium",
-         "question":"Which survivor in Left 4 Dead sacrificed themself to save the other survivors?",
+         "question":"(2) Which survivor in Left 4 Dead sacrificed themself to save the other survivors?",
          "correct_answer":"Bill",
          "incorrect_answers":[
             "Louis",
@@ -29,7 +29,7 @@
          "category":"General Knowledge",
          "type":"multiple",
          "difficulty":"easy",
-         "question":"What is Cynophobia the fear of?",
+         "question":"(3) What is Cynophobia the fear of?",
          "correct_answer":"Dogs",
          "incorrect_answers":[
             "Birds",
@@ -41,7 +41,7 @@
          "category":"History",
          "type":"multiple",
          "difficulty":"easy",
-         "question":"Who rode on horseback to warn the Minutemen that the British were coming during the U.S. Revolutionary War?",
+         "question":"(4) Who rode on horseback to warn the Minutemen that the British were coming during the U.S. Revolutionary War?",
          "correct_answer":"Paul Revere",
          "incorrect_answers":[
             "Thomas Paine",
@@ -53,7 +53,7 @@
          "category":"Geography",
          "type":"multiple",
          "difficulty":"medium",
-         "question":"Which two modern-day countries used to be known as the region of Rhodesia between the 1890s and 1980?",
+         "question":"(5) Which two modern-day countries used to be known as the region of Rhodesia between the 1890s and 1980?",
          "correct_answer":"Zambia &amp; Zimbabwe",
          "incorrect_answers":[
             "Togo &amp; Benin",

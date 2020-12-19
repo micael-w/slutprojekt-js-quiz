@@ -53,7 +53,7 @@ h1 {
     background-color: var(--white);
     margin-top: 3rem;
     width: 60vw;
-    height: 60vh;
+    min-height: 60vh;
     border-radius: 2%;
     box-shadow:
     0 4.5px 3.6px rgba(31, 40, 80, 0.024),
@@ -103,15 +103,19 @@ h1 {
     grid-area: progress-bar;
     background-color: var(--blue-50);
     width: 95%;
+
 }
 
 .progress-bar {
     background-color: var(--blue-dark);
+    opacity: .5;
 /*     width: 20%; */
+    transition: all 150ms ease-in-out;
 }
 
 .option {
     background-color: var(--white-dark);
+    text-align: center;
 }
 
 .option:hover {
@@ -165,6 +169,10 @@ h1 {
     outline: none;
     transform: scale(.98);
     opacity: 100%;
+}
+
+.hide-me {
+    display: none;
 }
 
 .nav-btn {
