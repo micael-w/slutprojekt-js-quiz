@@ -12,6 +12,7 @@
     --black-light:  #a2a6b5;
 
     --green:        #8cd181;
+    --green-25:     rgba(140, 209, 129, 0.25);
     --green-dark:   #1e8d3e;
     --red:          #f56d84;
     --red-dark:     #cb4f6f;
@@ -62,7 +63,7 @@ h1 {
     0 100px 80px rgba(031, 40, 80, 0.07);
     display: flex;
     justify-content: center;
-    align-items: center
+    align-items: center;
 }
 
 .container {
@@ -79,8 +80,8 @@ h1 {
       "option-1 option-1 option-2 option-2"
       "option-3 option-3 option-4 option-4"
       "navigation navigation navigation navigation";
-  }
-  
+}
+
 .question { 
     grid-area: question;
     text-align: center;
@@ -180,6 +181,12 @@ h1 {
     padding: .5rem;
 }
 
+.nav-btn-full {
+    background-color: var(--white-dark);
+    width: 90%;
+    padding: .5rem;
+}
+
 .next {
     color: var(--black);
     background-color: var(--green);
@@ -211,3 +218,114 @@ h1 {
     cursor: default;
     transform: scale(1);
 }
+
+.results {
+    width: 80%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 2fr repeat(10, 1fr) 2fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "score score score score"
+      "qu-1 qu-1 qu-1 qu-1"
+      "qu-1-op-1 qu-1-op-2 qu-1-op-3 qu-1-op-4"
+      "qu-2 qu-2 qu-2 qu-2"
+      "qu-2-op-1 qu-2-op-2 qu-2-op-3 qu-2-op-4"
+      "qu-3 qu-3 qu-3 qu-3"
+      "qu-3-op-1 qu-3-op-2 qu-3-op-3 qu-3-op-4"
+      "qu-4 qu-4 qu-4 qu-4"
+      "qu-4-op-1 qu-4-op-2 qu-4-op-3 qu-4-op-4"
+      "qu-5 qu-5 qu-5 qu-5"
+      "qu-5-op-1 qu-5-op-2 qu-5-op-3 qu-5-op-4"
+      "navigation navigation navigation navigation";
+}
+  
+.score {
+    grid-area: score;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.qu {
+    width: 90%;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+}
+
+.op {
+    text-align: center;
+    margin: .5rem 2rem;
+    font-size: .8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.op-correct {
+    background-color: var(--green-25);
+    color: var(--green-dark);
+    font-weight: 700;
+}
+
+.op-selected {
+    border: solid 2px var(--blue-50);
+}
+
+.qu-1 { grid-area: qu-1; }
+
+.qu-1-op-1 { grid-area: qu-1-op-1; }
+
+.qu-1-op-2 { grid-area: qu-1-op-2; }
+
+.qu-1-op-3 { grid-area: qu-1-op-3; }
+
+.qu-1-op-4 { grid-area: qu-1-op-4; }
+
+.qu-2 { grid-area: qu-2; }
+
+.qu-2-op-1 { grid-area: qu-2-op-1; }
+
+.qu-2-op-2 { grid-area: qu-2-op-2; }
+
+.qu-2-op-3 { grid-area: qu-2-op-3; }
+
+.qu-2-op-4 { grid-area: qu-2-op-4; }
+
+.qu-3 { grid-area: qu-3; }
+
+.qu-3-op-1 { grid-area: qu-3-op-1; }
+
+.qu-3-op-2 { grid-area: qu-3-op-2; }
+
+.qu-3-op-3 { grid-area: qu-3-op-3; }
+
+.qu-3-op-4 { grid-area: qu-3-op-4; }
+
+.qu-4 { grid-area: qu-4; }
+
+.qu-4-op-1 { grid-area: qu-4-op-1; }
+
+.qu-4-op-2 { grid-area: qu-4-op-2; }
+
+.qu-4-op-3 { grid-area: qu-4-op-3; }
+
+.qu-4-op-4 { grid-area: qu-4-op-4; }
+
+.qu-5 { grid-area: qu-5; }
+
+.qu-5-op-1 { grid-area: qu-5-op-1; }
+
+.qu-5-op-2 { grid-area: qu-5-op-2; }
+
+.qu-5-op-3 { grid-area: qu-5-op-3; }
+
+.qu-5-op-4 { grid-area: qu-5-op-4; }
+
+.navigation { grid-area: navigation; }

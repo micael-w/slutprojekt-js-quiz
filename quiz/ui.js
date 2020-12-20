@@ -1,11 +1,16 @@
 class UI {
 
-    static async paintUI(array, i) {
-        let container = document.querySelector(".container");
+    static async paintUI(array, i, userScore, correctAnswers) {
+        // let container = document.querySelector(".container");
+        let wrapper = document.querySelector(".wrapper");
         const output = [];
-    
-        output.push(`
-        <div class="question">
+        console.log(`current user score: ${userScore}`)
+
+        if (i < array.length) {
+
+            output.push(`
+            <div class="container">
+                <div class="question">
                     <h1>${array[i].question}</h1>
                 </div>
                 <div class="question-number">
@@ -35,9 +40,49 @@ class UI {
                         Restart
                     </div>
                 </div>
-              </div>
-              `)
-              container.innerHTML = output.join('\n');
+            </div>
+                `);
+
+                wrapper.innerHTML = output.join('\n');
+
+        } else {
+
+            output.push(`
+            <div class="results">
+                <div class="score">
+                    You scored ${correctAnswers} of ${array.length}!
+                </div>
+                `);
+
+                let whichQuestion;
+                output.push(
+                    array.forEach((elem, i) => {
+                        whichQuestion++
+                        output.push(`
+                        <div class="qu qu-${i+1}">
+                            ${elem.question}
+                        </div>
+                        `);
+                        elem.answers.forEach((elem, i) => {
+                            output.push(`
+                            <div class="qu-${whichQuestion}-op-${i+1} op">
+                                ${elem.answer}
+                            </div>
+                            `);
+                        });
+                    }));
+
+                    output.push(`
+                    <div class="navigation">
+                        <div class="btn nav-btn nav-btn-full restart">
+                            Restart
+                        </div>
+                    </div>
+                    `);
+
+            wrapper.innerHTML = output.join('\n');
+        }
+              
     }
 
 }

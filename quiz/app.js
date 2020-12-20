@@ -14,7 +14,7 @@ let questionsArray = [];
 let currentQuestion = 0;
 let userAnswer = 0;
 let currentUserScore = [];
-let correctAnswers = [];
+let correctAnswers = 0;
 let currentCorrectAnswer;
 
 /* --------------------------- get data from fetch -------------------------- */
@@ -30,20 +30,17 @@ function getNewQuestions(index) {
 /* --------------------- make array of all the questions -------------------- */
 
 function makeQuestions(res, index) {
-    // let questionsArray = [];
     for (let i = 0; i < res.results.length; i++) {
         questionsArray.push(new CreateAQuestion(res, i));
     }
     console.log(questionsArray)
-    UI.paintUI(questionsArray, index)
-    // console.log(CorrectAnswer.getCorrectAnswer(questionsArray, currentQuestion))
+    UI.paintUI(questionsArray, index, currentUserScore)
 }
 
 /* ---------------- class that checks which answer is correct --------------- */
 
 class CorrectAnswer {
     static getCorrectAnswer(array, index) {
-        // currentCorrectAnswer = 0;
         array[index].answers.forEach((elem, i) => {
             if (elem.isCorrect) {
                 currentCorrectAnswer = (i+1)
@@ -56,20 +53,23 @@ class CorrectAnswer {
 /* --------------------- class that holds the user score -------------------- */
 
 class Score {
-
     static async userScore(currentQuestion, userAnswer, correctAnswer) {
+        if (userAnswer === correctAnswer) {
+            correctAnswers++
+        }
         currentUserScore.push({currentQuestion, userAnswer, correctAnswer})
+        console.log(`user answer: ${userAnswer} correct answer: ${correctAnswer} total: ${correctAnswers}`)
         return this.currentUserScore;
     }
-
 }
 
 /* ----------------- invoke the function that gets the data ----------------- */
 
 window.addEventListener("DOMContentLoaded", getNewQuestions(currentQuestion));
-document.querySelector(".container").addEventListener("click", (e) => userSubmit(e));
+document.querySelector(".wrapper").addEventListener("click", (e) => userSubmit(e));
 
 function userSubmit(e) {
+    console.log(e.target)
     e.preventDefault();
 
 /* ---------------------------- select an answer ---------------------------- */
@@ -89,7 +89,7 @@ function userSubmit(e) {
         currentQuestion++
         Score.userScore(currentQuestion, userAnswer, CorrectAnswer.getCorrectAnswer(questionsArray, (currentQuestion-1)));
         console.log(currentUserScore)
-        UI.paintUI(questionsArray, currentQuestion)
+        UI.paintUI(questionsArray, currentQuestion, currentUserScore, correctAnswers)
         userAnswer = 0;
     }
 
@@ -99,6 +99,7 @@ function userSubmit(e) {
         console.log("restart")
         currentQuestion = 0;
         userAnswer = 0;
+        correctAnswers = 0;
         questionsArray = [];
         currentUserScore = [];
         getNewQuestions(currentQuestion);
