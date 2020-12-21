@@ -271,11 +271,11 @@ h1 {
 .op-correct {
     background-color: var(--green-25);
     color: var(--green-dark);
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .op-selected {
-    border: solid 2px var(--blue-50);
+    border: solid 1px var(--blue-50);
 }
 
 .qu-1 { grid-area: qu-1; }

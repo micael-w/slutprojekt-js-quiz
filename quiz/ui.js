@@ -1,10 +1,8 @@
 class UI {
 
     static async paintUI(array, i, userScore, correctAnswers) {
-        // let container = document.querySelector(".container");
         let wrapper = document.querySelector(".wrapper");
         const output = [];
-        console.log(`current user score: ${userScore}`)
 
         if (i < array.length) {
 
@@ -20,18 +18,17 @@ class UI {
                     <div class="progress-bar" style="width: ${((i+1)*100)/array.length}%">              
                     </div>
                 </div>
-                <div class="btn option option-1">
-                    ${array[i].answers[0].answer}
-                </div>
-                <div class="btn option option-2">
-                    ${array[i].answers[1].answer}
-                </div>
-                <div class="btn option option-3">
-                    ${array[i].answers[2].answer}
-                </div>
-                <div class="btn option option-4">
-                    ${array[i].answers[3].answer}
-                </div>
+                `);
+
+                for (let index = 0; index < array[i].answers.length; index++) {
+                    output.push(`
+                    <div class="btn option option-${index+1}">
+                        ${array[i].answers[index].answer}
+                    </div>
+                    `);
+                }
+                
+                output.push(`
                 <div class="navigation">
                     <div class="btn nav-btn next next-disabled">
                         Next
@@ -54,7 +51,7 @@ class UI {
                 </div>
                 `);
 
-                let whichQuestion;
+                let whichQuestion = 0;
                 output.push(
                     array.forEach((elem, i) => {
                         whichQuestion++
@@ -81,6 +78,12 @@ class UI {
                     `);
 
             wrapper.innerHTML = output.join('\n');
+            console.log(userScore)
+
+            for (let i = 1; i < userScore.length+1; i++) {
+               document.querySelector(`.qu-${userScore[i-1].currentQuestion}-op-${userScore[i-1].correctAnswer}`).className += " op-correct"
+               document.querySelector(`.qu-${userScore[i-1].currentQuestion}-op-${userScore[i-1].userAnswer}`).className += " op-selected"       
+            }
         }
               
     }

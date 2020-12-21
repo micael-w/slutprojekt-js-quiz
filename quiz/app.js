@@ -33,7 +33,6 @@ function makeQuestions(res, index) {
     for (let i = 0; i < res.results.length; i++) {
         questionsArray.push(new CreateAQuestion(res, i));
     }
-    console.log(questionsArray)
     UI.paintUI(questionsArray, index, currentUserScore)
 }
 
@@ -58,7 +57,6 @@ class Score {
             correctAnswers++
         }
         currentUserScore.push({currentQuestion, userAnswer, correctAnswer})
-        console.log(`user answer: ${userAnswer} correct answer: ${correctAnswer} total: ${correctAnswers}`)
         return this.currentUserScore;
     }
 }
@@ -69,7 +67,6 @@ window.addEventListener("DOMContentLoaded", getNewQuestions(currentQuestion));
 document.querySelector(".wrapper").addEventListener("click", (e) => userSubmit(e));
 
 function userSubmit(e) {
-    console.log(e.target)
     e.preventDefault();
 
 /* ---------------------------- select an answer ---------------------------- */
@@ -88,7 +85,6 @@ function userSubmit(e) {
     if (e.target.classList.contains("next") && (userAnswer != 0)) {
         currentQuestion++
         Score.userScore(currentQuestion, userAnswer, CorrectAnswer.getCorrectAnswer(questionsArray, (currentQuestion-1)));
-        console.log(currentUserScore)
         UI.paintUI(questionsArray, currentQuestion, currentUserScore, correctAnswers)
         userAnswer = 0;
     }
@@ -96,7 +92,6 @@ function userSubmit(e) {
 /* ------------------------------ click restart ----------------------------- */
 
     if (e.target.classList.contains("restart")) {
-        console.log("restart")
         currentQuestion = 0;
         userAnswer = 0;
         correctAnswers = 0;
