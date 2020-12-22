@@ -2,6 +2,8 @@
 /*                                  quiz app                                  */
 /* -------------------------------------------------------------------------- */
 
+/* -------------------------- app inits on line 68 -------------------------- */
+
 /* -------------------------- import other modules -------------------------- */
 
 import Questions from "./questions.js";
@@ -64,6 +66,9 @@ class Score {
 /* ----------------- invoke the function that gets the data ----------------- */
 
 window.addEventListener("DOMContentLoaded", getNewQuestions(currentQuestion));
+
+/* ----------------------- event propagation for click ---------------------- */
+
 document.querySelector(".wrapper").addEventListener("click", (e) => userSubmit(e));
 
 function userSubmit(e) {
@@ -73,10 +78,14 @@ function userSubmit(e) {
 
     if (e.target.classList.contains("option")) {
        e.target.parentElement.children[7].children[0].classList.remove("next-disabled");
+               // this looks like this because we need the 3, 4, 5, 6th elements from the
+               // parent element
         for (let i = 3; i < 7; i++) {
             e.target.parentElement.children[i].classList.remove("option-selected");
         }
         e.target.classList.toggle("option-selected")
+            // we also want a number, which we extract using slice from
+            // the class name "option-[number]"
         userAnswer = parseInt(e.target.classList[2].slice(7, 8))
     }
 

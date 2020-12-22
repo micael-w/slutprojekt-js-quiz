@@ -20,6 +20,7 @@ class UI {
                 </div>
                 `);
 
+                // dynamically rendering html
                 for (let index = 0; index < array[i].answers.length; index++) {
                     output.push(`
                     <div class="btn option option-${index+1}">
@@ -51,6 +52,7 @@ class UI {
                 </div>
                 `);
 
+                // dynamically rendering html here too
                 let whichQuestion = 0;
                 output.push(
                     array.forEach((elem, i) => {
@@ -80,6 +82,7 @@ class UI {
             wrapper.innerHTML = output.join('\n');
             console.log(userScore)
 
+            // lastly, dynamically adding the proper css classes to indicate the correct answers and the user's answers
             for (let i = 1; i < userScore.length+1; i++) {
                document.querySelector(`.qu-${userScore[i-1].currentQuestion}-op-${userScore[i-1].correctAnswer}`).className += " op-correct"
                document.querySelector(`.qu-${userScore[i-1].currentQuestion}-op-${userScore[i-1].userAnswer}`).className += " op-selected"       
